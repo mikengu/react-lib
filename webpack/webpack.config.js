@@ -11,8 +11,9 @@ const getPlugins = args => {
     .map(name => require(`./plugins/webpack.${name}.js`))
 }
 
-module.exports = ({env, plugins}) => {
+module.exports = (config) => {
+  const env = config.env || 'dev'
+  const plugins = config.plugins || []
   const envConfig = require(`./webpack.${env}.js`)
-
   return webpackMerge(commonConfig, envConfig, ...getPlugins(plugins))
 }

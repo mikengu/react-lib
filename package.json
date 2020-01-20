@@ -5,8 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config webpack/webpack.config.js --env.env=dev",
+    "style-guide": "styleguidist server",
+    "build-guide": "styleguidist build",
     "build": "webpack --config webpack/webpack.config.js --env.env=prod",
-    "build:analyze": "npm run build -- --env.plugins=bundleanalyze --env.plugins=bundlevisualizer"
+    "build:analyze": "npm run build -- --env.plugins=bundleanalyze --env.plugins=bundlevisualizer",
+    "lint-fix": "eslint src/ --fix"
   },
   "author": "Mike Ngu",
   "license": "MIT",
@@ -27,6 +30,7 @@
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.7.0",
     "prop-types": "^15.7.2",
+    "react-styleguidist": "^10.6.0",
     "style-loader": "^1.1.2",
     "terser-webpack-plugin": "^2.3.2",
     "webpack": "^4.41.5",
@@ -37,6 +41,10 @@
     "webpack-visualizer-plugin": "^0.1.11"
   },
   "dependencies": {
+    "@material-ui/core": "^4.8.3",
+    "@material-ui/icons": "^4.5.1",
+    "daterangepicker": "^3.0.5",
+    "jquery": "^3.4.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   }
