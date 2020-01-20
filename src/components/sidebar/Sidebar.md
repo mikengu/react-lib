@@ -23,7 +23,7 @@ const items = [
   {name: 'setting', label: 'Setting', icon: Settings},
 ];
 
-<Sidebar items={items} />
+<Sidebar items={items} backgroundColor={'#eeeeee'} />
 ```
 
 
@@ -95,5 +95,5 @@ const items = [
   }
 ];
 
-<Sidebar items={items} theme={'dark'} />
+<Sidebar items={items} style={{height: '80vh'}} theme={'dark'} />
 ```
