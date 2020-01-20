@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --config webpack/webpack.config.js --env.env=dev",
     "build": "webpack --config webpack/webpack.config.js --env.env=prod",
-    "build:analyze": "npm run build -- --env.plugins=bundleanalyze --env.plugins=bundlevisualizer"
+    "build:analyze": "npm run build -- --env.plugins=bundleanalyze --env.plugins=bundlevisualizer",
+    "lint-fix": "eslint src/ --fix"
   },
   "author": "Mike Ngu",
   "license": "MIT",
