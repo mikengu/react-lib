@@ -72,7 +72,6 @@ Temporary Items
 
 # SSR directory
 public/
-build/
 
 # dotenv environment variables file
 .env
