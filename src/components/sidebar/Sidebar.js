@@ -2,7 +2,7 @@ import React, {Fragment, useState} from 'react'
 import PropTypes from 'prop-types'
 import List from '@material-ui/core/List'
 import {ListItem, ListItemText, Collapse, ListItemIcon, makeStyles} from '@material-ui/core'
-import {ExpandLess, ExpandMore} from '@material-ui/icons'
+import {ArrowRight, ArrowDropDown} from '@material-ui/icons'
 import './sidebar.css'
 
 const darkTheme = {
@@ -20,7 +20,7 @@ function SidebarItem ({label, name, items, depthStep = 10, depth = 0, Icon}) {
       [name]: !currentState[name]
     }))
   }
-  const expandBtn = open => open ? <ExpandLess /> : <ExpandMore />
+  const expandBtn = open => !open ? <ArrowDropDown /> : <ArrowRight />
   return (
     <Fragment>
       <ListItem onClick={handleClick} button dense>
@@ -54,16 +54,17 @@ function SidebarItem ({label, name, items, depthStep = 10, depth = 0, Icon}) {
 SidebarItem.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string,
+  Icon: PropTypes.node,
   items: PropTypes.array,
   depth: PropTypes.number,
   theme: PropTypes.object,
   depthStep: PropTypes.number
 }
 
-function Sidebar ({items, theme, icon, width}) {
+function Sidebar ({items, theme, backgroundColor, style, icon, width}) {
   const useStyles = makeStyles(material => {
     let themeColor = {
-      backgroundColor: material.palette.background.paper,
+      backgroundColor: backgroundColor || material.palette.background.paper,
       color: '#000'
     }
     if (theme === 'dark') {
@@ -73,6 +74,7 @@ function Sidebar ({items, theme, icon, width}) {
       root: {
         width: width,
         maxWidth: width,
+        ...style,
         ...themeColor
       },
       nested: {
@@ -110,6 +112,7 @@ Sidebar.propTypes = {
   height: PropTypes.string,
   items: PropTypes.array,
   onClick: PropTypes.func,
+  style: PropTypes.object,
   theme: PropTypes.string,
   width: PropTypes.string
 }
